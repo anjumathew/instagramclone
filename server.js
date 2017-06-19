@@ -19,9 +19,9 @@ mongoose.connect('mongodb://user4396:password4396@ds064799.mlab.com:64799/databa
 });
 
 
-/*var post = new Post({ 
-  image: 'http://d30nr4b2k915ua.cloudfront.net/wp-content/uploads/2015/11/16111059/where-can-i-get-puppies-for-free-02-600x600.jpg',
-  comment: 'cool glphicon',
+var post = new Post({ 
+  image: 'http://www.zarias.com/wp-content/uploads/2015/12/10-cute-puppies.jpg',
+  comment: 'cute puppy',
   likeCount: 0,
   feedbackCount: 0
 });
@@ -32,7 +32,7 @@ post.save(function (err) {
   } else {
     console.log('posted');
   }
-});*/
+});
 
 
 router.use(express.static(path.resolve(__dirname, 'client')));

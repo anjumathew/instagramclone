@@ -36,7 +36,7 @@
             display: flex;
             width: 100%;
             align-items: stretch;
-            border:0px solid #000;
+            border: 0px solid #000;
             flex-shrink: 0;
             margin: 0px;
             position: relative;
@@ -44,25 +44,29 @@
         
         .divinsta {
             margin-left: 100px;
-            margin-top:20px;
+            margin-top: 20px;
         }
-        .insta{
-            font-family:"Brush Script Std", "Brush Script MT", cursive;
+        
+        .insta {
+            font-family: "Brush Script Std", "Brush Script MT", cursive;
         }
-        a{
-            color:black;
-          }
-          p{
-              font-weight:bold;
-          }
-          .posthead{
-             margin: 0 auto;
-          height:60px;
-          width:600px;
-         margin-top:90px;
-              background-color: #fafafa;
-          border: 1px solid rgba(0, 0, 0, .0975);
-          }
+        
+        a {
+            color: black;
+        }
+        
+        p {
+            font-weight: bold;
+        }
+        
+        .posthead {
+            margin: 0 auto;
+            height: 60px;
+            width: 600px;
+            margin-top: 90px;
+            background-color: #fafafa;
+            border: 1px solid rgba(0, 0, 0, .0975);
+        }
     </style>
     <script src="js/jquery.min.js"></script>
     <script>
@@ -76,13 +80,13 @@
                     posts.forEach(function(post) {
                         $('#posts').append(
                             '<div data-postId="' + post._id + '">' +
-                            '<img src="' + post.image + '" style="width:600px;height:600px;"/>' +
+                            '<img src="' + post.image + '" style="width:600px;height:400px;"/>' +
                             '<p>' + post.comment + '</p>' +
                             '</div>'
                         );
                         $('.posthead').append(
                             ' <img src="' + post.image + '" class="img-circle" style="width:40px; height:40px;margin-top:11px;margin-left:15px;">'
-                            );
+                        );
                     });
                 })
                 .catch(function(err) {
@@ -98,7 +102,7 @@
             <div class="navtop">
                 <div class="innernav">
                     <div class="divinsta">
-                        <i class="fa fa-instagram"  style="font-size:40px;">
+                        <i class="fa fa-instagram" style="font-size:40px;">
                         <a class="insta">Instagram</a>
                         </i>
                     </div>
@@ -109,7 +113,7 @@
             </div>
         </div>
         <div class="posthead">
-           
+
         </div>
         <div id="posts"></div>
     </div>
