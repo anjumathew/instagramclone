@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            padding-top: 60px;
+            background-color: white;
+        }
+        
+        #posts {
+            width: 600px;
+            margin: 0 auto;
+            /* margin-left:500px;*/
+        }
+        
+        .navtop {
+            align-items: center;
+            background-color: #fafafa;
+            border-bottom: 1px solid rgba(0, 0, 0, .0975);
+            height: 77px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            transition: 200ms ease-out;
+            flex-shrink: 0;
+            margin: 0;
+        }
+        
+        .innernav {
+            display: flex;
+            width: 100%;
+            align-items: stretch;
+            border:0px solid #000;
+            flex-shrink: 0;
+            margin: 0px;
+            position: relative;
+        }
+        
+        .divinsta {
+            margin-left: 100px;
+            margin-top:20px;
+        }
+        .insta{
+            font-family:"Brush Script Std", "Brush Script MT", cursive;
+        }
+        a{
+            color:black;
+          }
+          p{
+              font-weight:bold;
+          }
+          .posthead{
+             margin: 0 auto;
+          height:60px;
+          width:600px;
+         margin-top:90px;
+              background-color: #fafafa;
+          border: 1px solid rgba(0, 0, 0, .0975);
+          }
+    </style>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function onload() {
+            Promise.resolve()
+                .then(function() {
+                    return $.post('posts');
+                })
+                .then(function(posts) {
+                    $('#posts').html('');
+                    posts.forEach(function(post) {
+                        $('#posts').append(
+                            '<div data-postId="' + post._id + '">' +
+                            '<img src="' + post.image + '" style="width:600px;height:600px;"/>' +
+                            '<p>' + post.comment + '</p>' +
+                            '</div>'
+                        );
+                        $('.posthead').append(
+                            ' <img src="' + post.image + '" class="img-circle" style="width:40px; height:40px;margin-top:11px;margin-left:15px;">'
+                            );
+                    });
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+        }
+    </script>
+</head>
+
+<body onload="onload();">
+    <div class="container" ng-controller="ChatController">
+        <div class="navbar navbar-fixed-top navbar-inverse">
+            <div class="navtop">
+                <div class="innernav">
+                    <div class="divinsta">
+                        <i class="fa fa-instagram"  style="font-size:40px;">
+                        <a class="insta">Instagram</a>
+                        </i>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+        <div class="posthead">
+           
+        </div>
+        <div id="posts"></div>
+    </div>
+</body>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+</html>
