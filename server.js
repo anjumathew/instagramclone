@@ -1,8 +1,7 @@
-//
+
 // Assignment 3
 //
-// By Anju Mathew, Madhavi Patel
-
+//By  Anju Mathew (7804396), Madhavi Patel(7780497)
 const dbUrl = 'mongodb://user4396:password4396@ds064799.mlab.com:64799/databaseanju';
 
 //require statements -- this adds external modules from node_modules or our own defined modules
