@@ -148,7 +148,7 @@ router.post('/passwordreset', (req, res) => {
     })
 });
 
-router.get('/verifypassword', function(req, res){
+/*router.get('/verifypassword', function(req, res){
     var password;
     
     Promise.resolve()
@@ -170,8 +170,34 @@ router.get('/verifypassword', function(req, res){
         return user.save();
       }
     })
-});
+});*/
 
+router.get('/verifypassword', function(req, res){
+    var password;
+    Promise.resolve()
+    .then(function(){
+           
+
+      return PasswordReset.findOne({_id: req.query.id});
+    })
+    .then(function(pr){
+      if (pr){
+        if (pr.expires > new Date()){
+          password = pr.password;
+          //see if there's a user with this email
+          return User.findOne({_id : pr.userId});
+        }
+      }
+    })
+    .then(function(user){
+      if (user){
+        user.password = password;
+         user.save();
+         var msg="reset_success"
+          res.redirect('/?msg=' + msg);
+      }
+    })
+})
 //tell the router how to handle a get request to the posts page
 //only do this if this is an authenticated user
 router.get('/posts', userAuth.isAuthenticated, function(req, res){
